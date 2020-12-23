@@ -1,0 +1,78 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title slot="end">Detalle de la Cotizacion</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-card *ngFor="let item of dlotesFirma">
+    <ion-card-content> 
+      <ion-grid>
+        <ion-row class="ion-align-items-left" hidden>
+          <ion-col size="4"> <ion-label><b>CotizacionId:</b></ion-label></ion-col>
+          <ion-col size="8"> <ion-label> {{ item.CotizacionId }} </ion-label></ion-col>
+        </ion-row>
+        <ion-row class="ion-align-items-left">
+          <ion-col size="4"> <ion-label><b>Producto:</b></ion-label></ion-col>
+          <ion-col size="8"> <ion-label> {{ item.Producto }} </ion-label></ion-col>
+        </ion-row>
+        <ion-row class="ion-align-items-left">
+          <ion-col size="4"> <ion-label><b>Cantidad:</b></ion-label></ion-col>
+          <ion-col size="8"> <ion-label> {{ item.Cantidad }} </ion-label></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4"><ion-label><b>Codigo Producto:</b></ion-label></ion-col>
+          <ion-col size="8"><ion-label> {{ item.CodProducto }} </ion-label></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4"><ion-label><b>FV</b></ion-label></ion-col>
+          <ion-col size="8"><ion-label> {{ item.FechaVencimiento }} </ion-label></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4"><ion-label><b>Lote:</b></ion-label></ion-col>
+          <ion-col size="8"><ion-label>{{ item.Lote }}</ion-label></ion-col>
+        </ion-row>
+        <ion-row hidden>
+          <ion-col size="4"><ion-label><b>Ubicacion Producto:</b></ion-label></ion-col>
+          <ion-col size="8"><ion-label>{{ item.UbicacionProd }}</ion-label></ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4"><ion-label><b>Unidad:</b></ion-label></ion-col>
+          <ion-col size="8"><ion-label>{{ item.Unidad }}</ion-label></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+  <ion-card>
+    <ion-card-content>
+      
+
+      <ion-item  >
+        <ion-label>Accion</ion-label>
+
+        <ion-select interface="action-sheet" class="custom-options" [(ngModel)]="ActionOption" required>
+          <ion-select-option value="2"> Aprobado</ion-select-option>
+          <ion-select-option value="3"> Rechazado</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-row>
+        
+        <ion-col size="6">
+          <ion-button float-right  shape="round" (click)="aprobar($event)" color="success">
+            <ion-icon name="checkmark-outline"></ion-icon>Confirmar
+          </ion-button>
+        </ion-col>
+        <ion-col size="6"  hidden ><ion-button float-right  shape="round" (click)="aprobar()" color="danger"><ion-icon name="close-outline"></ion-icon>Cancelar</ion-button></ion-col>
+      </ion-row>
+
+      
+    </ion-card-content>
+  </ion-card>
+
+  
+</ion-content>

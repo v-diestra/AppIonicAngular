@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title *ngIf="!isSearchBarOpen">Cotizaciones</ion-title>
+    <ion-searchbar animated (ionChange)="BuscarCoti( $event )" placeholder="Buscar" *ngIf="isSearchBarOpen" showCancelButton="true" (ionCancel) = "isSearchBarOpen=false"></ion-searchbar>
+    <ion-buttons slot="end" *ngIf="!isSearchBarOpen">
+      <ion-button icon-only (click)="isSearchBarOpen = true">
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" (click)="openMenu( $event )" *ngIf="!isSearchBarOpen" >
+      <ion-button >
+        <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+<!--    <ion-button *ngIf="!isSearchBarOpen" (click)="userProfile()" slot="start" color="light" fill="clear">
+      <ion-icon name="person-circle-outline"></ion-icon>
+    </ion-button>
+-->
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card *ngIf="msg">
+    <ion-card-content>
+      <h1>{{ msg }}</h1>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card  (click)="DetalleCotizacion(item.CotizacionId)" *ngFor="let item of lCotizacion| filtrocotizacion: textoBuscar ">
+    <ion-card-content>
+      <ion-grid>
+        <h1>Cotizacion: {{item.NroCotizacion }}</h1>
+        
+        <ion-row class="ion-align-items-left">
+          <ion-col size="4"><ion-label><b>Id:</b></ion-label></ion-col>
+          <ion-col size="8"><ion-label> {{ item.CotizacionId }} </ion-label></ion-col>
+        </ion-row>
+        <ion-row class="ion-align-items-left">
+          <ion-col size="4"><ion-label><b>Cliente:</b></ion-label></ion-col>
+          <ion-col size="8"><ion-label> {{ item.Cliente }} </ion-label></ion-col>
+        </ion-row>
+        <ion-row class="ion-align-items-left">
+          <ion-col size="4"><ion-label><b>Empresa:</b></ion-label></ion-col>
+          <ion-col size="8"><ion-label> {{ item.Empresa }} </ion-label></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

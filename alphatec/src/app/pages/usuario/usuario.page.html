@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>usuario</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button text=""></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="menu-header-bg"></div>
+
+  <div class="header-content"> 
+    <img src="https://www.pavilionweb.com/wp-content/uploads/2017/03/man-300x300.png" alt="">
+    <ion-label >
+      <h1> {{ usuario }} </h1>
+      <p> {{ nombre }} </p>
+    </ion-label>
+  </div>
+  <ion-list lines="none" class="menu-items">
+    <ion-item (click)="salir()">
+      <ion-icon name="power-outline" ></ion-icon> Salir
+    </ion-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div id="header">
+    <h1></h1>
+    <img src="https://microhealth.com/assets/images/illustrations/personal-user-illustration-@2x.png" />
+  </div>
+  <form #form='ngForm' (submit)="onLogin(form)" id="formu">
+    <ion-item  class="ion-margin-bottom">
+      <ion-input required type="text" placeholder="Usuario" #Usuario ="ngModel" name="Usuario" [(ngModel)]="formModel.Usuario"><ion-icon name="person-outline"></ion-icon></ion-input>
+    </ion-item>
+    <ion-item  class="ion-margin-bottom">
+      <ion-input required type="password" placeholder="Clave" #Password="ngModel" name="Password" [(ngModel)]="formModel.Password"><ion-icon name="lock-closed-outline"></ion-icon></ion-input>
+    </ion-item>
+    <ion-button type="submit" expand="block" shape="round" [disabled] ="form.invalid">Entrar</ion-button>
+  </form>
+</ion-content>

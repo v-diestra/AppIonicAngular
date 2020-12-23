@@ -1,0 +1,14 @@
+ion-content{
+    --background: #eaeaea;
+    ion-card{
+        box-shadow: none;
+        border-radius: 14px;
+        padding: 14px;
+        box-shadow: 7px 7px 20px #dbdfe2, -7px -7px 20px #ffffff;
+    }
+}
+ion-header{
+    .nose{
+        --background: #001777;
+    }
+}
